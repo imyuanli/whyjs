@@ -1,11 +1,30 @@
 {
   "name": "whyjs",
-  "version": "0.0.0",
-  "description": "a js utils",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "father dev",
+    "build": "father build",
+    "build:deps": "father prebundle",
+    "prepublishOnly": "father doctor && npm run build",
+    "relase-patch": "standard-version --release-as patch",
+    "relase-minor": "standard-version --release-as minor",
+    "relase-major": "standard-version --release-as major",
+    "release": "standard-version"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [],
+  "authors": [],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "father": "^4.2.3"
+  }
 }
