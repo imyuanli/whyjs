@@ -8,7 +8,11 @@
     "dev": "father dev",
     "build": "father build",
     "build:deps": "father prebundle",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepublishOnly": "father doctor && npm run build",
+    "relase-patch": "standard-version --release-as patch",
+    "relase-minor": "standard-version --release-as minor",
+    "relase-major": "standard-version --release-as major",
+    "release": "standard-version"
   },
   "keywords": [],
   "authors": [],
