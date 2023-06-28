@@ -23,3 +23,4 @@ export const pull = (array, ...values) => {
 }
 export const without = (array, ...values) => isArray(array) ? array.filter(item => !values.includes(item)) : []
 export const uniq = array => isArray(array) ? [...new Set(array)] : []
+export const deepFlatten = array => array.reduce((acc, cur) => isArray(cur) ? [...acc, ...deepFlatten(cur)] : [...acc, cur], [])
