@@ -1,32 +1,32 @@
-const  typeVerification= (value,type) => Object.prototype.toString.call(value) === `[object ${type}]`;
+//获取数据类型
+export const typeOf = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase()
 
 //基础类型判断
-export const isString = value => typeVerification(value,'String')
-export const isNumber = value => typeVerification(value,'Number')
-export const isBoolean = value => typeVerification(value,'Boolean')
-export const isUndefined = value => typeVerification(value,'Undefined')
-export const isNull = value => typeVerification(value,'Null')
-export const isSymbol = value => typeVerification(value,'Symbol')
-export const isObject = value => typeVerification(value,'Object')
-export const isFunction = value => typeVerification(value,'Function')
-export const isArray = value => typeVerification(value,'Array')
-
+export const isString = value => typeOf(value) === 'string'
+export const isNumber = value => typeOf(value) === 'number'
+export const isBoolean = value => typeOf(value) === 'boolean'
+export const isUndefined = value => typeOf(value) === 'undefined'
+export const isNull = value => typeOf(value) === 'null'
+export const isSymbol = value => typeOf(value) === 'symbol'
+export const isObject = value => typeOf(value) === 'object'
+export const isFunction = value => typeOf(value) === 'function'
+export const isArray = value => typeOf(value) === 'array'
 
 //特殊类型判断
-export const isArguments = value => typeVerification(value,'Arguments')
-export const isPromise = value => typeVerification(value,'Promise')
-export const isSet = value => typeVerification(value,'Set')
-export const isMap = value => typeVerification(value,'Map')
-export const isRegExp = value => typeVerification(value,'RegExp')
-export const isDate = value => typeVerification(value,'Date')
-export const isError = value => typeVerification(value,'Error')
-export const isMath = value => typeVerification(value,'Math')
-export const isJSON = value => typeVerification(value,'JSON')
-export const isGlobal = value => typeVerification(value,'global')
-export const isWindow = value => typeVerification(value,'Window')
-export const isDocument = value => typeVerification(value,'Document')
-export const isElement = value => typeVerification(value,'Element')
-export const isHTMLElement = value => typeVerification(value,'HTML')
+export const isArguments = value => typeOf(value) === 'arguments'
+export const isPromise = value => typeOf(value) === 'promise'
+export const isSet = value => typeOf(value) === 'set'
+export const isMap = value => typeOf(value) === 'map'
+export const isRegExp = value => typeOf(value) === 'regexp'
+export const isDate = value => typeOf(value) === 'date'
+export const isError = value => typeOf(value) === 'error'
+export const isMath = value => typeOf(value) === 'math'
+export const isJSON = value => typeOf(value) === 'json'
+export const isGlobal = value => typeOf(value) === 'global'
+export const isWindow = value => typeOf(value) === 'window'
+export const isDocument = value => typeOf(value) === 'document'
+export const isElement = value => typeOf(value) === 'element'
+export const isHTMLElement = value => typeOf(value) === 'htmlelement'
 export const isEmpty = value => {
   if (isString(value) || isArray(value)) {
     return value.length === 0
@@ -54,3 +54,6 @@ export const isFloat = value => {
   }
   return false
 }
+
+//其他的判断
+export const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
